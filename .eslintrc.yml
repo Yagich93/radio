@@ -1,0 +1,16 @@
+# http://eslint.org/docs/rules/
+extends:
+  - eslint:recommended
+  - prettier
+plugins:
+  - prettier
+parserOptions:
+  ecmaVersion: 2018
+env:
+  node: true
+  es6: true
+  mocha: true
+rules:
+  semi: [ error, never ]
+  quotes: [ warn, single, avoidEscape: true ]
+  prettier/prettier: warn
