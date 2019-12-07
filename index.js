@@ -1,4 +1,6 @@
 const { Api } = require('./src/api')
+const { Playlist } = require('./src/services/playlist')
 
-const api = new Api()
+const playlist = new Playlist()
+const api = new Api(playlist)
 api.listen()
