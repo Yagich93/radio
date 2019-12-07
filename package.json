@@ -6,5 +6,8 @@
   "repository": "git@github.com:Yagich93/radio.git",
   "author": "Iakov Lushin <yagich@bk.ru>",
   "license": "UNLICENSED",
-  "private": true
+  "private": true,
+  "scripts": {
+    "start": "node index.js"
+  }
 }
