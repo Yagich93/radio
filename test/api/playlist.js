@@ -1,10 +1,11 @@
 const axios = require('axios')
 const { expect } = require('chai')
 const { Api } = require('../../src/api')
+const { playlistServiceMock } = require('../lib/playlist-service-mock')
 
 const PORT = 8080
 
-new Api().listen({ port: PORT })
+new Api(playlistServiceMock).listen({ port: PORT })
 const client = axios.create({
   baseURL: `http://localhost:${PORT}/`
 })
@@ -18,5 +19,10 @@ describe('Playlist HTTP API', () => {
   it('should return a list', async () => {
     const { data } = await client.get('/playlist')
     expect(data).to.be.an('array')
+  })
+
+  it('should return 20 items by default', async () => {
+    const { data } = await client.get('/playlist')
+    expect(data).have.lengthOf(20)
   })
 })
