@@ -25,4 +25,10 @@ describe('Playlist HTTP API', () => {
     const { data } = await client.get('/playlist')
     expect(data).have.lengthOf(20)
   })
+
+  it('should return requested number of items', async () => {
+    const length = 35
+    const { data } = await client.get('/playlist', { params: { length } })
+    expect(data).have.lengthOf(length)
+  })
 })
