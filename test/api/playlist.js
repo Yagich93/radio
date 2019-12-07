@@ -31,4 +31,9 @@ describe('Playlist HTTP API', () => {
     const { data } = await client.get('/playlist', { params: { length } })
     expect(data).have.lengthOf(length)
   })
+
+  it('should return items in correct format', async () => {
+    const { data } = await client.get('/playlist')
+    data.map(song => expect(song).to.have.all.keys('artist', 'durationMs', 'id', 'title'))
+  })
 })
