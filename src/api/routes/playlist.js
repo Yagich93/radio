@@ -2,6 +2,7 @@ module.exports = api => {
   const { router, playlistService } = api
 
   router.get('/playlist', async ctx => {
-    ctx.body = playlistService.generate(20)
+    const { length = 20 } = ctx.query
+    ctx.body = playlistService.generate(length)
   })
 }
