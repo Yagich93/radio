@@ -14,4 +14,9 @@ describe('Playlist HTTP API', () => {
     const { status } = await client.get('/playlist')
     expect(status).to.equal(200)
   })
+
+  it('should return a list', async () => {
+    const { data } = await client.get('/playlist')
+    expect(data).to.be.an('array')
+  })
 })
