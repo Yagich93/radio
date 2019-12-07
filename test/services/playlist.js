@@ -1,7 +1,8 @@
 const { expect } = require('chai')
 const { Playlist } = require('../../src/services/playlist')
+const { songDbMock } = require('../lib/song-db-mock')
 
-const playlist = new Playlist()
+const playlist = new Playlist(songDbMock)
 
 describe('Playlist Service', () => {
   it('should return a list', async () => {
