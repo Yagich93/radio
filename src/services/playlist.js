@@ -1,6 +1,6 @@
 class Playlist {
-  generate() {
-    return []
+  generate(n) {
+    return new Array(n)
   }
 }
 
