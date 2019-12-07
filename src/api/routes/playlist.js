@@ -1,7 +1,7 @@
 module.exports = api => {
-  const { router } = api
+  const { router, playlistService } = api
 
   router.get('/playlist', async ctx => {
-    ctx.body = []
+    ctx.body = playlistService.generate(20)
   })
 }

@@ -4,7 +4,9 @@ const Router = require('@koa/router')
 const loadPlaylistRoutes = require('./routes/playlist')
 
 class Api {
-  constructor() {
+  constructor(playlistService) {
+    this.playlistService = playlistService
+
     // Setup koa and router
     this.koa = new Koa()
     this.router = new Router()
