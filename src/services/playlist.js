@@ -13,9 +13,9 @@ class Playlist {
   }
 
   _appendNextSong(songs) {
-    const lastSong = songs[songs.length - 1]
-    const [firstLetter] = lastSong.title
-    const nextSong = this.songDb.sample({ firstLetter })
+    const lastSong = _.last(songs)
+    const lastLetter = _.last(lastSong.title)
+    const nextSong = this.songDb.sample({ firstLetter: lastLetter })
     songs.push(nextSong)
   }
 }
