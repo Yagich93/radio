@@ -6,7 +6,7 @@ const testSongs = extractSongsFromJson(testDbJson)
 
 const songDb = new SongDb(testDbJson)
 
-describe('Playlist Service', () => {
+describe('Song DB', () => {
   it('should sample random song without arguments', async () => {
     const song = songDb.sample()
     expect(testSongs).to.deep.include.members([song])
