@@ -16,6 +16,11 @@ class SongDb {
     }
 
     const songIndexes = this.indexByFirstLetter[firstLetter]
+
+    if (!songIndexes) {
+      return null
+    }
+
     const randomIndex = _.sample(songIndexes)
     return this.songs[randomIndex]
   }
