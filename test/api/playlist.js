@@ -1,14 +1,9 @@
-const axios = require('axios')
 const { expect } = require('chai')
 const { Api } = require('../../src/api')
 const { playlistServiceMock } = require('../lib/playlist-service-mock')
+const { client } = require('../lib/client')
 
-const PORT = 8080
-
-new Api(playlistServiceMock).listen({ port: PORT })
-const client = axios.create({
-  baseURL: `http://localhost:${PORT}/`
-})
+new Api(playlistServiceMock).listen()
 
 describe('Playlist HTTP API', () => {
   it('should return status 200', async () => {
