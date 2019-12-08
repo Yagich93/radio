@@ -15,7 +15,7 @@ class SongDb {
       return _.sample(this.songs)
     }
 
-    const songIndexes = this.indexByFirstLetter[firstLetter]
+    const songIndexes = this.indexByFirstLetter[firstLetter.toLowerCase()]
 
     if (!songIndexes) {
       return null
@@ -49,7 +49,7 @@ class SongDb {
   _createIndexByFirstLetter(songs) {
     const indexByFirstLetter = {}
     songs.forEach((song, index) => {
-      const firstLetter = _.first(song.title)
+      const firstLetter = _.first(song.title).toLowerCase()
       indexByFirstLetter[firstLetter] = indexByFirstLetter[firstLetter] || []
       indexByFirstLetter[firstLetter].push(index)
     })
