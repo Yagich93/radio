@@ -20,7 +20,7 @@ class Api {
 
   listen(options = {}) {
     const defaults = { port: 8080 }
-    const { port } = { ...options, ...defaults }
+    const { port } = { ...defaults, ...options }
 
     // Start http instance
     this._server = this.koa.listen(port)
