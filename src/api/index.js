@@ -23,8 +23,12 @@ class Api {
     const { port } = { ...options, ...defaults }
 
     // Start http instance
-    this.koa.listen(port)
+    this._server = this.koa.listen(port)
     console.log('Server listening on port', port)
+  }
+
+  stop() {
+    this._server.close()
   }
 }
 
