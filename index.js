@@ -1,10 +1,5 @@
-const { Api } = require('./src/api')
-const { Playlist } = require('./src/services/playlist')
-const { SongDb } = require('./src/db/song-db')
-const dbJson = require('./assets/db.json')
+const { Launcher } = require('./src/launcher')
 
-const songDb = new SongDb(dbJson)
-const playlist = new Playlist(songDb)
-const api = new Api(playlist)
+const launcher = new Launcher()
 
-api.listen()
+launcher.launch()
