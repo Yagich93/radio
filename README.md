@@ -4,15 +4,26 @@ Application to create a linked playlist for a local radio.
 
 ## Usage
 
+### Setup
+
 To load modules, run:
 
 `yarn`
+
+### Start
 
 To start the app, run:
 
 `yarn start`
 
 **NOTE:** App starts on port `8080` by default.
+
+To cutomize port, use `PORT` environment variable.
+For example:
+
+`PORT=3000 yarn start`
+
+### Tests
 
 To run tests, run:
 
