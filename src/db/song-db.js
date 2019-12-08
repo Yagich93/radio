@@ -7,7 +7,9 @@ class SongDb {
     this.songs = this._parseDbJson(dbJson)
   }
 
-  sample() {}
+  sample() {
+    return _.sample(this.songs)
+  }
 
   _parseDbJson(dbJson) {
     const songs = []
