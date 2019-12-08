@@ -3,9 +3,17 @@ const { Api } = require('../../src/api')
 const { playlistServiceMock } = require('../lib/playlist-service-mock')
 const { client } = require('../lib/client')
 
-new Api(playlistServiceMock).listen()
+const api = new Api(playlistServiceMock)
 
 describe('Playlist HTTP API', () => {
+  before('start api', () => {
+    api.listen()
+  })
+
+  after('stop api', () => {
+    api.stop()
+  })
+
   it('should return status 200', async () => {
     const { status } = await client.get('/playlist')
     expect(status).to.equal(200)
