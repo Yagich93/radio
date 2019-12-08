@@ -56,3 +56,13 @@ Response:
     }
 ]
 ```
+
+## Limitations
+
+This app has several known limitations:
+
+- There is no validation of input parameters.
+- There is no documentation generated apart of the description in this document.
+- Database implementation has been simplified to reading pre-baked JSON file.
+- The output playlists may have duplicates, even one after another, especially when encountering some rare symbols.
+- No bonus requirements concerning playlist duration have been met. Only matching of the first letter of each song title to the last letter of previous one.
