@@ -14,7 +14,12 @@ class SongDbMock {
   constructor() {
     this.titleMap = INFINITE_TITLE_MAP
   }
-  sample({ firstLetter = 'y' } = {}) {
+
+  sample() {
+    return this.sampleByFirstLetter('y')
+  }
+
+  sampleByFirstLetter(firstLetter) {
     const title = this.titleMap[firstLetter]
     return title ? { title } : null
   }

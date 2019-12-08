@@ -8,13 +8,11 @@ class SongDb {
     this.indexByFirstLetter = this._createIndexByFirstLetter(this.songs)
   }
 
-  sample(options = {}) {
-    const { firstLetter } = options
+  sample() {
+    return _.sample(this.songs)
+  }
 
-    if (!firstLetter) {
-      return _.sample(this.songs)
-    }
-
+  sampleByFirstLetter(firstLetter) {
     const songIndexes = this.indexByFirstLetter[firstLetter.toLowerCase()]
 
     if (!songIndexes) {

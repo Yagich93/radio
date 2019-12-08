@@ -21,17 +21,17 @@ describe('Song DB', () => {
   })
 
   it('should sample by first letter', async () => {
-    const song = songDb.sample({ firstLetter: 'B' })
+    const song = songDb.sampleByFirstLetter('B')
     expect(song).to.deep.equal(B_SONG)
   })
 
   it('should return null for not-found song', async () => {
-    const song = songDb.sample({ firstLetter: 'X' })
+    const song = songDb.sampleByFirstLetter('X')
     expect(song).to.deep.equal(null)
   })
 
   it('should be case-insensitive', async () => {
-    const song = songDb.sample({ firstLetter: 'b' })
+    const song = songDb.sampleByFirstLetter('b')
     expect(song).to.deep.equal(B_SONG)
   })
 })

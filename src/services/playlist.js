@@ -20,7 +20,7 @@ class Playlist {
 
   _getNextSongByTitle(title) {
     const lastLetter = _.last(title)
-    const nextSong = this.songDb.sample({ firstLetter: lastLetter })
+    const nextSong = this.songDb.sampleByFirstLetter(lastLetter)
     return nextSong || this._getNextSongByTitle(title.slice(0, -1))
   }
 }
