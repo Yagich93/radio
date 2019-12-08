@@ -25,6 +25,14 @@
                     }
                 ],
                 "_name": "10,000 Maniacs"
+            },
+            {
+                "Song": {
+                    "_name": "Changes",
+                    "_id": "4340",
+                    "_duration": "269244"
+                },
+                "_name": "2PAC"
             }
         ]
     }
