@@ -40,6 +40,7 @@ class SongDb {
       indexByFirstLetter[firstLetter] = indexByFirstLetter[firstLetter] || []
       indexByFirstLetter[firstLetter].push(index)
     })
+    return indexByFirstLetter
   }
 }
 
