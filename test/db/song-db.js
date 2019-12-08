@@ -29,4 +29,9 @@ describe('Song DB', () => {
     const song = songDb.sample({ firstLetter: 'X' })
     expect(song).to.deep.equal(null)
   })
+
+  it('should be case-insensitive', async () => {
+    const song = songDb.sample({ firstLetter: 'b' })
+    expect(song).to.deep.equal(B_SONG)
+  })
 })
