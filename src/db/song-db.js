@@ -5,6 +5,7 @@ const SONG_KEY_MAP = { _name: 'title', _duration: 'durationMs', _id: 'id' }
 class SongDb {
   constructor(dbJson) {
     this.songs = this._parseDbJson(dbJson)
+    this.indexByFirstLetter = this._createIndexByFirstLetter(this.songs)
   }
 
   sample() {
@@ -30,6 +31,15 @@ class SongDb {
 
   _parseSongJson(songJson) {
     return _.mapKeys(songJson, (val, key) => SONG_KEY_MAP[key])
+  }
+
+  _createIndexByFirstLetter(songs) {
+    const indexByFirstLetter = {}
+    songs.forEach((song, index) => {
+      const firstLetter = _.first(song.title)
+      indexByFirstLetter[firstLetter] = indexByFirstLetter[firstLetter] || []
+      indexByFirstLetter[firstLetter].push(index)
+    })
   }
 }
 
