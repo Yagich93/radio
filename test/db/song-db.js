@@ -34,4 +34,10 @@ describe('Song DB', () => {
     const song = songDb.sampleByFirstLetter('b')
     expect(song).to.deep.equal(B_SONG)
   })
+
+  it('should sample different songs by first letter', async () => {
+    const songs = _.times(20, () => songDb.sampleByFirstLetter('c'))
+    const deduplicatedSongs = _.uniq(songs)
+    expect(deduplicatedSongs).to.have.length.greaterThan(1)
+  })
 })
