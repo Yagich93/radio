@@ -91,3 +91,10 @@ This app has several known limitations:
   some rare symbols.
 - No bonus requirements concerning playlist duration have been met. Only matching of the first
   letter of each song title to the last letter of the previous one.
+
+## Notable Features
+
+This project uses:
+
+- ESLint to find problems in code. See: https://eslint.org
+- Prettier to auto-format code. See: https://prettier.io
