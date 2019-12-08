@@ -57,6 +57,14 @@ Response:
 ]
 ```
 
+## Behaviour
+
+The playlists are generated so that the first letter of each next song title mathces the last letter of the previous one.
+
+First song is picked randomly.
+
+If there is no song for some last letter in the title — next last letters are used until some song gets found. For example, after `"Electrical Storm (William Orbit Mix)"` goes `"I'm In The Mood For Love"`, omitting `)` and `x` in the end of the first title.
+
 ## Limitations
 
 This app has several known limitations:
@@ -65,4 +73,4 @@ This app has several known limitations:
 - There is no documentation generated apart of the description in this document.
 - Database implementation has been simplified to reading pre-baked JSON file.
 - The output playlists may have duplicates, even one after another, especially when encountering some rare symbols.
-- No bonus requirements concerning playlist duration have been met. Only matching of the first letter of each song title to the last letter of previous one.
+- No bonus requirements concerning playlist duration have been met. Only matching of the first letter of each song title to the last letter of the previous one.
