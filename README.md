@@ -29,6 +29,8 @@ To run tests, run:
 
 `yarn test`
 
+Tests include several groups of unit tests and a couple of end-to-end tests.
+
 ## API
 
 This app has only one route to generate playlist:
