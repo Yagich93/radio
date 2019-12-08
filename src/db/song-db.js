@@ -1,3 +1,7 @@
+const _ = require('lodash')
+
+const SONG_KEY_MAP = { _name: 'title', _duration: 'durationMs', _id: 'id' }
+
 class SongDb {
   constructor(dbJson) {
     this.songs = this._parseDbJson(dbJson)
@@ -8,15 +12,21 @@ class SongDb {
   _parseDbJson(dbJson) {
     const songs = []
     dbJson.Library.Artist.map(artistJson => {
-      const artistSongs = artistJson.Song.map(({ _name, _id, _duration }) => ({
-        artist: artistJson._name,
-        durationMs: _duration,
-        id: _id,
-        title: _name
-      }))
+      const artistSongs = this._parseArtistJson(artistJson)
       songs.push(...artistSongs)
     })
     return songs
+  }
+
+  _parseArtistJson(artistJson) {
+    return artistJson.Song.map(songJson => {
+      const song = this._parseSongJson(songJson)
+      return { ...song, artist: artistJson._name }
+    })
+  }
+
+  _parseSongJson(songJson) {
+    return _.mapKeys(songJson, (val, key) => SONG_KEY_MAP[key])
   }
 }
 
