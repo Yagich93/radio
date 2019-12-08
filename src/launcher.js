@@ -10,8 +10,12 @@ class Launcher {
     this.api = new Api(this.playlist)
   }
 
-  launch() {
+  start() {
     this.api.listen()
+  }
+
+  stop() {
+    this.api.stop()
   }
 }
 
