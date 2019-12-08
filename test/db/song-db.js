@@ -24,4 +24,9 @@ describe('Song DB', () => {
     const song = songDb.sample({ firstLetter: 'B' })
     expect(song).to.deep.equal(B_SONG)
   })
+
+  it('should return null for not-found song', async () => {
+    const song = songDb.sample({ firstLetter: 'X' })
+    expect(song).to.deep.equal(null)
+  })
 })
