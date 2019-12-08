@@ -21,7 +21,8 @@ class SongDb {
   }
 
   _parseArtistJson(artistJson) {
-    return artistJson.Song.map(songJson => {
+    const songsJson = _.castArray(artistJson.Song)
+    return songsJson.map(songJson => {
       const song = this._parseSongJson(songJson)
       return { ...song, artist: artistJson._name }
     })
