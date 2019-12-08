@@ -8,8 +8,16 @@ class SongDb {
     this.indexByFirstLetter = this._createIndexByFirstLetter(this.songs)
   }
 
-  sample() {
-    return _.sample(this.songs)
+  sample(options = {}) {
+    const { firstLetter } = options
+
+    if (!firstLetter) {
+      return _.sample(this.songs)
+    }
+
+    const songIndexes = this.indexByFirstLetter[firstLetter]
+    const randomIndex = _.sample(songIndexes)
+    return this.songs[randomIndex]
   }
 
   _parseDbJson(dbJson) {
